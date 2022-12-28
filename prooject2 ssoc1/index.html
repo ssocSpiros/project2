@@ -1,0 +1,148 @@
+<!-- Σελίδα που φιλοξενει εναν μετατροπέα μοναδων μετρησης του βάρους -->
+
+<!-- Πληκτρολογώντας τις λίβρες και τις μετατρεπουμε 
+ταυτόχρονα σε γραμμαρια,κιλά και ουγγιές -->
+<!-- Weight converter application
+Lbs to grams-kilograms-Ounces -->
+
+<!--Συντάκτης: Θεοδοσίου Σπυρίδων 
+Εργασια για το start school of code -- 'project 2' -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project 2 - Weight Converter </title>
+    <script src="function.js"></script>
+
+    <style>
+        body{
+            margin-top: 70px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 10px;
+            
+        }
+        .card1{
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            padding: 2px;
+            background: #2351e7;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .card2{
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            padding: 2px;
+            background: #92e723;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .card3{
+            width: 50%;
+            margin: 0 auto;
+            padding: 2px;
+            background: #e75123;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+        }
+        /* .form-group{
+            margin: 10px;
+            padding: 10px;
+            
+        } */
+        .form-control {
+            width: 50%;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            background: #444;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="display">Weight Converter</h1>
+            <form>
+                <div class="form-group">
+                    <input 
+                    id="lbsInput"
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter pounds...">
+                    
+                </div>
+            </form>
+            <div id="output">
+                <div class="card1">
+                    <div class="card-block">
+                        <h4>Grams:</h4>
+                        <div id="gramsOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-block">
+                        <h4>Kilograms:</h4>
+                        <div id="kgOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card3">
+                    <div class="card-block">
+                        <h4>Ounces:</h4>
+                        <div id="ozOutput"></div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+
+  
+
+
+     //με αυτη τη μεθοδο θελουμε
+     // να μην εμφανιζονται στην αρχικη παρουσιαση στην σελιδα οι χρωματιστες καρτες
+     //μετα την περναμε μεσα στην συναρτηση και αλλαζουμε την τιμη σε visible για να εμφανιζονται 
+     //οι μετατροπες μετα την ενεργοποιηση του click event στο input field
+    document.getElementById('output').style.visibility = 'hidden';
+
+    
+// Συναρτηση με παραμετρο 'e' . για να στοχευσουμε τα αποτελεσματα και να παρουμε το output που θελουμε μεσω 
+//παραμετρου e , επιλεγουμε τα παραπανω
+// με τη μεταβλητη let lbs
+//επειτα  περναμε σε αυτην παραμετρους το event και την αναμενομενη τιμη που θελουμε να λαβουμε
+
+ document.getElementById('lbsInput').addEventListener('input', function(e){
+document.getElementById('output').style.visibility = 'visible';
+//με αυτη τη μεθοδο εμφανιζονται οι χρωματιστες καρτες αποτελεσματων
+ //απο τη στιγμη που ενεργοποιηθει το click event
+let lbs = e.target.value;
+document.getElementById('gramsOutput').innerHTML= lbs/0.0022046; // για να μετατρεψω τις λιβρες σε γραμμαρια
+document.getElementById('kgOutput').innerHTML= lbs/2.2046;// λιβρες σε κιλα
+document.getElementById('ozOutput').innerHTML= lbs*16; //λιβρες σε ουγγιες(οunces)
+
+});
+
+    </script>
+</body>
+</html>
